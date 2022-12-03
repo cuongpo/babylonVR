@@ -126,9 +126,91 @@
         }, BABYLON.PointerEventTypes.POINTERPICK);
         //console.log(ANote0Video);
 
+        // video pindias
+        var planeOpts = {
+          height: 5.4762,
+          width: 7.3967,
+          sideOrientation: BABYLON.Mesh.DOUBLESIDE
+        };
+        var ANote0Video = BABYLON.MeshBuilder.CreatePlane("plane", planeOpts, scene);
+        var vidPos = (new BABYLON.Vector3(-5, 5, 7.8))
+        var vidRotation = new BABYLON.Vector3(0, 0, 0);
+        ANote0Video.position = vidPos;
+        ANote0Video.rotation = vidRotation;
+        ANote0Video.scaling = new BABYLON.Vector3(0.8, 0.8, 0.8);
+        var ANote0VideoMat = new BABYLON.StandardMaterial("m", scene);
+        var ANote0VideoVidTex = new BABYLON.VideoTexture("vidtex", "https://raw.githubusercontent.com/cuongpo/babylon/main/pindias.mp4", scene);
+        ANote0VideoMat.diffuseTexture = ANote0VideoVidTex;
+        ANote0VideoMat.roughness = 1;
+        ANote0VideoMat.emissiveColor = new BABYLON.Color3.White();
+        ANote0Video.material = ANote0VideoMat;
+        scene.onPointerObservable.add(function(evt) {
+          if (evt.pickInfo.pickedMesh === ANote0Video) {
+            //console.log("picked");
+            if (ANote0VideoVidTex.video.paused) ANote0VideoVidTex.video.play();
+            else ANote0VideoVidTex.video.pause();
+            console.log(ANote0VideoVidTex.video.paused ? "paused" : "playing");
+          }
+        }, BABYLON.PointerEventTypes.POINTERPICK);
+
+        // video VR
+        var planeOpts = {
+          height: 5.4762,
+          width: 7.3967,
+          sideOrientation: BABYLON.Mesh.DOUBLESIDE
+        };
+        var ANote0Video = BABYLON.MeshBuilder.CreatePlane("plane", planeOpts, scene);
+        var vidPos = (new BABYLON.Vector3(0, 5, 7.8))
+        var vidRotation = new BABYLON.Vector3(0, 0, 0);
+        ANote0Video.position = vidPos;
+        ANote0Video.rotation = vidRotation;
+        ANote0Video.scaling = new BABYLON.Vector3(0.8, 0.8, 0.8);
+        var ANote0VideoMat = new BABYLON.StandardMaterial("m", scene);
+        var ANote0VideoVidTex = new BABYLON.VideoTexture("vidtex", "https://raw.githubusercontent.com/cuongpo/babylon/main/video-vr.mp4", scene);
+        ANote0VideoMat.diffuseTexture = ANote0VideoVidTex;
+        ANote0VideoMat.roughness = 1;
+        ANote0VideoMat.emissiveColor = new BABYLON.Color3.White();
+        ANote0Video.material = ANote0VideoMat;
+        scene.onPointerObservable.add(function(evt) {
+          if (evt.pickInfo.pickedMesh === ANote0Video) {
+            //console.log("picked");
+            if (ANote0VideoVidTex.video.paused) ANote0VideoVidTex.video.play();
+            else ANote0VideoVidTex.video.pause();
+            console.log(ANote0VideoVidTex.video.paused ? "paused" : "playing");
+          }
+        }, BABYLON.PointerEventTypes.POINTERPICK);
+
+        // video MTW tech
+        var planeOpts = {
+          height: 5.4762,
+          width: 7.3967,
+          sideOrientation: BABYLON.Mesh.DOUBLESIDE
+        };
+        var ANote0Video = BABYLON.MeshBuilder.CreatePlane("plane", planeOpts, scene);
+        var vidPos = (new BABYLON.Vector3(5, 5, 7.8))
+        var vidRotation = new BABYLON.Vector3(0, 0, 0);
+        ANote0Video.position = vidPos;
+        ANote0Video.rotation = vidRotation;
+        ANote0Video.scaling = new BABYLON.Vector3(0.8, 0.8, 0.8);
+        var ANote0VideoMat = new BABYLON.StandardMaterial("m", scene);
+        var ANote0VideoVidTex = new BABYLON.VideoTexture("vidtex", "https://raw.githubusercontent.com/cuongpo/babylon/main/mtw-tech.mp4", scene);
+        ANote0VideoMat.diffuseTexture = ANote0VideoVidTex;
+        ANote0VideoMat.roughness = 1;
+        ANote0VideoMat.emissiveColor = new BABYLON.Color3.White();
+        ANote0Video.material = ANote0VideoMat;
+        scene.onPointerObservable.add(function(evt) {
+          if (evt.pickInfo.pickedMesh === ANote0Video) {
+            //console.log("picked");
+            if (ANote0VideoVidTex.video.paused) ANote0VideoVidTex.video.play();
+            else ANote0VideoVidTex.video.pause();
+            console.log(ANote0VideoVidTex.video.paused ? "paused" : "playing");
+          }
+        }, BABYLON.PointerEventTypes.POINTERPICK);
+
+
         // environment
         const image = new BABYLON.StandardMaterial("test");
-        image.diffuseTexture = new BABYLON.Texture("./textures/environment-1.jpg");
+        image.diffuseTexture = new BABYLON.Texture("./textures/env-2.jpg");
 
         const playerPicture = BABYLON.MeshBuilder.CreatePlane("playerPicture", {height: 12, width: 34.28});
         playerPicture.material = image;
@@ -142,12 +224,12 @@
 
         // environment
         const image2 = new BABYLON.StandardMaterial("test");
-        image2.diffuseTexture = new BABYLON.Texture("./textures/environment-2.jpg");
+        image2.diffuseTexture = new BABYLON.Texture("./textures/env-3.jpg");
 
         const playerPicture2 = BABYLON.MeshBuilder.CreatePlane("playerPicture", {height: 12, width: 34.28});
         playerPicture2.material = image2;
         playerPicture2.position.y = 7;
-        playerPicture2.position.x = -2;
+        playerPicture2.position.x = -5;
         playerPicture2.position.z = -10;
 
         playerPicture2.scaling = new BABYLON.Vector3(1, 1, 1);
