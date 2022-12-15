@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Babylon.js sample code</title>
+    <title>Metaway Building</title>
     <!-- Babylon.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>
     <script src="https://assets.babylonjs.com/generated/Assets.js"></script>
@@ -74,6 +74,31 @@
           //Play the Samba animation  
           sambaAnim.start(true, 1.0, sambaAnim.from, sambaAnim.to, false);
         });
+
+
+        const resultPromise2 = BABYLON.SceneLoader.ImportMeshAsync("", "https://raw.githubusercontent.com/cuongpo/babylon/main/", "portal.glb", scene);
+            resultPromise2.then((result) => {
+            result.meshes[0].position.x = 0;
+            result.meshes[0].position.y = 3.5;
+            result.meshes[0].position.z = -5;
+            result.meshes[0].scaling = new BABYLON.Vector3(0.01, 0.01, 0.01);
+            result.meshes[0].rotationQuaternion = undefined;
+            scene.beforeRender = () => {
+                result.meshes[0].rotation.y += 0.01;
+            };
+            console.log(result.meshes[0]);
+            scene.onPointerUp = function(evt, pickResult) {
+                if (pickResult.hit) {
+              
+                    if (pickResult.pickedMesh.name=="Main_Outer_LO_T_Portal_0") {
+                        window.location = "https://minigame.metaworldz.dev/";
+                    }
+                    
+                }
+            }
+        })
+        
+
         // This creates and positions a free camera (non-mesh)
         var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(15, 5, 0), scene);
         // This targets the camera to scene origin
